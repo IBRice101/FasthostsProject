@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../Styles/LightTheme.css" rel="stylesheet" />
+    <script src="../Scripts/Validation/Validator.js"></script>
+    <script src="../Scripts/Validation/utils.js"></script>
+</head>
+<body onload="Validator.Initialize('myForm', 3, 'btnSubmit', 'img/check.gif', 'img/x.gif');">
+    <div>
+        <form name="myForm" onsubmit="if(!Validator.AllFieldsValidated()) return false;" />
+        <header>
+            <div class="head">
+                <img src="../Images/logo.png" alt="Fasthosts Logo" />
+                <ul>
+                    <li><a href="https://www.fasthosts.co.uk/blog/">Blog</a></li>
+                    <li><a href="https://www.fasthosts.co.uk/support">Support</a></li>
+                    <li><input runat="server" id="btn_Light" type="button" causesvalidation="false" value="Light Theme" onserverclick="setLight" style="background-color:#0099FF; color:white; width:100px; height:35px;" /></li>
+                    <li><input runat="server" id="btn_Dark" type="button" causesvalidation="false" value="Dark Theme" onserverclick="setDark" style="background-color:#7289da; color:white; width:100px; height:35px;" /></li>
+                </ul>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="Home.aspx">Home</a></li>
+                    <li><a href="InterestReg.aspx">TLDs</a></li>
+                    <li><a href="ContactForm.html">Contact Us!</a></li>
+                    <li><a href="Login.aspx">Login</a></li>
+                    <li><a href="SignUp.aspx">Sign Up</a></li>
+                </ul>
+            </div>
+        </header>
+        <script src="../Scripts/Validation/Validator.js"></script>
+        <script src="../Scripts/Validation/utils.js"></script>
+        <div class="container">
+            <h1>Contact us!</h1>
+            <p>First Name</p>
+            <input type="text" id="firstName" name="firstName" class="tb_Input1" placeholder="First Name" onblur="Validator.Validate(this);" />
+            <p>Last name:</p>
+            <input type="text" id="lastName" name="lastName" class="tb_Input1" placeholder="Surname" onblur="Validator.Validate(this);" />
+            <p>Email Address</p>
+            <input type='email' name='email' class="tb_Input1" placeholder="Email Address" onblur="Validator.Validate(this, 'email')" />
+            <p>Message</p>
+            <textarea rows="4" cols="50" id="message" name="message" class="tb_Input2" placeholder="Message Here"></textarea>
+            <input type="submit" value="Submit" id="btnSubmit" />
+        </div>
+        <footer>
+            <div class="foot">
+                <img src="../Images/logo.png" alt="Fasthosts Logo" />
+                <div class="ftcontent">
+                    <div class="ftlinks">
+                        <ul>
+                            <li><a href="https://www.fasthosts.co.uk/terms/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="https://www.fasthosts.co.uk/companyinfo/terms-of-service">Terms of Service</a></li>
+                            <li><a href="https://www.fasthosts.co.uk/companyinfo/cookie-law">Cookie Law</a></li>
+                        </ul>
+                    </div>
+                    <p>© 1999-2018 Isaac Basque-Rice & Fasthosts Internet Limited. All rights reserved.</p>
+                    <br />
+                    <p>Fasthosts is the trading name of Fasthosts Internet Limited.
+                    <p>Company registration No. 3656438. Registered in England and Wales. </p>
+                    <p>VAT No. 720821857. Registered office: Discovery House, 154 Southgate Street, Gloucester, GL1 2EX, United Kingdom.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+ </form>
+</body>
+</html>

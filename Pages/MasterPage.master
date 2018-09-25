@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Pages_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Fasthosts TLD Registry</title>
+    <link href="../Styles/LightTheme.css" rel="stylesheet" runat="server" id="theme" />
+    <link href="../Styles/reset.css" rel="stylesheet" />
+    <script src="../Scripts/jquery/jquery-3.2.1.js"></script>
+    <script src="../Scripts/Moment/moment.js"></script>
+    <script src="../Scripts/DateTime.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+            <div class="head">
+                <img src="../Images/logo.png" alt="Fasthosts Logo" />
+                <ul>
+                    <li><a href="https://www.fasthosts.co.uk/blog/">Blog</a></li>
+                    <li><a href="https://www.fasthosts.co.uk/support">Support</a></li>
+                    <li><input runat="server" id="btn_Light" type="button" causesvalidation="false" value="Light Theme" onserverclick="setLight" style="background-color:#0099FF; color:white; width:100px; height:35px;"/></li>
+                    <li><input runat="server" id="btn_Dark" type="button" causesvalidation="false" value="Dark Theme" onserverclick="setDark" style="background-color:#7289da; color:white; width:100px; height:35px;"/></li>
+                </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="Home.aspx">Home</a></li>
+                        <li><a href="InterestReg.aspx">TLDs</a></li>
+                        <li><a href="ContactForm.html">Contact Us!</a></li>
+                        <% if (Session["User"] == null) { %>
+                        <li><a href="Login.aspx">Login</a></li>
+                        <li><a href="SignUp.aspx">Sign Up</a></li>
+                        <% } else { %>
+                        <li><asp:LinkButton ID="LogOutLink" runat="server" onclick="LogOut">Logout</asp:LinkButton></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <p id="time" class="time">Time is: </p>
+                <script>
+                    updateClock();
+                </script>
+            </header>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer>
+            <div class="foot">
+                <img src="../Images/logo.png" alt="Fasthosts Logo" />
+                <div class="ftcontent">
+                    <div class="ftlinks">
+                    <ul>
+                        <li><a href="https://www.fasthosts.co.uk/terms/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="https://www.fasthosts.co.uk/companyinfo/terms-of-service">Terms of Service</a></li>
+                        <li><a href="https://www.fasthosts.co.uk/companyinfo/cookie-law">Cookie Law</a></li>
+                    </ul>
+                </div>
+                    <p>© 1999-2018 Isaac Basque-Rice & Fasthosts Internet Limited. All rights reserved.</p>
+                    <br />
+                    <p>Fasthosts is the trading name of Fasthosts Internet Limited.
+                    <p>Company registration No. 3656438. Registered in England and Wales. </p>
+                    <p>VAT No. 720821857. Registered office: Discovery House, 154 Southgate Street, Gloucester, GL1 2EX, United Kingdom.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </form>
+</body>
+</html>
